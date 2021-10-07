@@ -28,24 +28,10 @@ function TopCommentsBox(props) {
       setEnableBtn(false)
     }  setEnableBtn(true)     
   }
+
   
-  return (
-    <form>
-      <section className="commentBox">
-        <input 
-          autoFocus={props.autoFocus}
-          type="text"
-          placeholder="Add a public comment..."
-          ref={message}
-          onFocus={commentFocus}
-          onBlur={commentFocusOut}
-          onKeyUp={commentStroke}
-        />
-        {/* underline begins here */}
-        <div className="commentLine"> </div>
-      </section> 
-     {showButtons && (
-      <>
+  const buttonCommentForm = () => {
+    return (<>
         <button 
           className="commentButton sendButton"
           disabled={enableBtn} >COMMENT
@@ -59,9 +45,32 @@ function TopCommentsBox(props) {
           }}
         >CANCEL
         </button>
-      </>
-    )   }
+      </>)
+  } 
+
+  const commentBoxForm = () => {
+    return (
+     <form>
+      <section className="commentBox">
+        <input 
+          autoFocus={props.autoFocus}
+          type="text"
+          placeholder="Add a public comment..."
+          ref={message}
+          onFocus={commentFocus}
+          onBlur={commentFocusOut}
+          onKeyUp={commentStroke}
+        />
+        {/* underline begins here */}
+        <div className="commentLine"> </div>
+      </section>
+
+     {showButtons && ( buttonCommentForm())}
     </form>
+    )}
+  
+  return (
+    commentBoxForm()
   )
 }
 

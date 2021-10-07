@@ -24,24 +24,30 @@ function TopCommentsBox(props) {
   //If input value isn't empty then enable the comment btn
   const commentStroke = (event) => {
     let currMessage = event.target.value;
-    if(currMessage) {
-      setEnableBtn(false)
-    }  setEnableBtn(true)     
+    currMessage ? setEnableBtn(false) : setEnableBtn(true)
   }
 
+  // send Comment
+  const sendComment = (event) => {
+    event.preventDefault();
+    return console.log("I'm here")
+
+  }
   
   const buttonCommentForm = () => {
-    return (<>
-        <button 
+    if(showButtons)
+     return (<>
+        <button
           className="commentButton sendButton"
-          disabled={enableBtn} >COMMENT
+          
+          disabled={enableBtn} onClick={sendComment} >COMMENT
         </button>
         <button 
           className="commentButton"
           style={{color: "grey", backgroundColor:"transparent"}} 
           onClick={() => {
             setShowButtons(false);
-            message.current.value = ""
+            message.current.value = ""            
           }}
         >CANCEL
         </button>
@@ -62,10 +68,11 @@ function TopCommentsBox(props) {
           onKeyUp={commentStroke}
         />
         {/* underline begins here */}
+        {showComentLine && <div className="commentLine"></div>}
         <div className="commentLine"> </div>
       </section>
 
-     {showButtons && ( buttonCommentForm())}
+     { buttonCommentForm()}
     </form>
     )}
   

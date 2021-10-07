@@ -39,3 +39,27 @@ form input[type="text"] {
   
   }
 }
+
+/* Buttons */
+.commentButton {
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: bold;
+  float: right;
+  border: none;
+  padding: 7px 7px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.sendButton:enabled {
+  background-color: #065fd4;
+  color: white;
+}
+
+.sendButton:disabled {
+  color: white;
+  cursor: default;
+  background-color: #cccc;
+}

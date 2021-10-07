@@ -1,0 +1,41 @@
+input {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+form {
+  overflow: auto;
+}
+
+form input[type="text"] {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  padding: 12x 20px 12px 0;
+  background-color: transparent;
+}
+
+.commentBox {
+  position: relative;
+}
+
+.commentLine {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0);
+  animation: commentLineScaleIn 0.2s forwards;
+}
+
+@keyframes commentLineScaleIn {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  
+  }
+}
